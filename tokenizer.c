@@ -6,7 +6,6 @@
  * @delims: delimitors to use to delimit words
  * Return: 2D array of pointers to each word
  */
-
 char **_strtok(char *str, char *delims)
 {
 	char **words = NULL;
@@ -15,7 +14,6 @@ char **_strtok(char *str, char *delims)
 	if (str == NULL || !*str)
 		return (NULL);
 	wc = get_word_count(str, delims);
-
 	if (wc == 0)
 		return (NULL);
 	words = malloc((wc + 1) * sizeof(char *));
@@ -25,9 +23,7 @@ char **_strtok(char *str, char *delims)
 	{
 		wordLen = get_word_length(str, delims);
 		if (is_delim(*str, delims))
-		{
 			str = get_next_word(str, delims);
-		}
 		words[i] = malloc((wordLen + 1) * sizeof(char));
 		if (words[i] == NULL)
 		{
@@ -59,7 +55,6 @@ char **_strtok(char *str, char *delims)
  * @delims: Pointer to null terminated array of delimitors
  * Return: 1 (success) 0 (failure)
  */
-
 int is_delim(char ch, char *delims)
 {
 	int i = 0;
@@ -74,14 +69,12 @@ int is_delim(char ch, char *delims)
 }
 
 /**
- * get_word_length - gets the word length of cur word in str
- *
+ * get_word_length - gets the word length of curent word in str
  * @str: string to get word length from current word
  * @delims: delimitors to use to delimit words
  *
  * Return: word length of current word
  */
-
 int get_word_length(char *str, char *delims)
 {
 	int wLen = 0, pending = 1, i = 0;
